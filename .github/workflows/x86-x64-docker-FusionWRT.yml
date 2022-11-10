@@ -19,6 +19,7 @@ on:
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
+##  CONFIG_FILE: configs/lean/lean_docker.config
   CONFIG_FILE: configs/lean/lean_docker.config
   DIY_SH: scripts/lean.sh
   KMODS_IN_FIRMWARE: true
@@ -71,6 +72,7 @@ jobs:
         ../$DIY_SH
         ../scripts/preset-clash-core.sh amd64
         ../scripts/preset-terminal-tools.sh
+        cat .config
         sed -i '$a\CONFIG_DEVEL=y\nCONFIG_LOCALMIRROR=\"https://openwrt.cc/dl/coolsnowwolf/lede\"' .config
         make defconfig
         
