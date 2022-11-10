@@ -72,6 +72,7 @@ jobs:
         ../$DIY_SH
         ../scripts/preset-clash-core.sh amd64
         ../scripts/preset-terminal-tools.sh
+        echo "echo .config file -1"
         cat .config
         sed -i '$a\CONFIG_DEVEL=y\nCONFIG_LOCALMIRROR=\"https://openwrt.cc/dl/coolsnowwolf/lede\"' .config
         make defconfig
@@ -80,6 +81,7 @@ jobs:
       id: package
       run: |
         cd $OPENWRTROOT
+        echo "echo .config file -2"
         cat .config
         make download -j50
         find dl -size -1024c -exec ls -l {} \;
