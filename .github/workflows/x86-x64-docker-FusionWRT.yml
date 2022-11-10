@@ -75,7 +75,7 @@ jobs:
         echo "echo .config file -1"
         cat .config
         sed -i '$a\CONFIG_DEVEL=y\nCONFIG_LOCALMIRROR=\"https://openwrt.cc/dl/coolsnowwolf/lede\"' .config
-        make savedefconfig
+   #     make defconfig
         
     - name: Download Package
       id: package
